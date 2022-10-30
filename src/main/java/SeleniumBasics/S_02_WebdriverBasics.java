@@ -39,8 +39,12 @@ public class S_02_WebdriverBasics
 		//System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + "\\resources\\geckodriver.exe");
 		
 		//Mac
+		// [Cons] For every browser update, we have to download respective chromedriver file
 		//System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "/resources/chromedriver");
 		
+		// [Pros] For every browser update, no need to download respective chromedriver file
+			// It checks in .m2 directory for the browser supported server executable (eg. chromedriver.exe)
+				// If the server executable is not present, it downloads the file
 		WebDriverManager.chromedriver().setup();
 		
 		// Top Casting
@@ -63,5 +67,4 @@ public class S_02_WebdriverBasics
 		// Quit browser
 		driver.quit();
 	}
-
 }
