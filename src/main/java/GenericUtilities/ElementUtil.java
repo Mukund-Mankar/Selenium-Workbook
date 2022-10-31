@@ -23,4 +23,28 @@ public class ElementUtil
 	{
 		driver.findElement(byLocator).sendKeys(value);;
 	}
+	
+	public void doSendKeys(String locatorType, String locatorValue, String value)
+	{
+		driver.findElement(getBy(locatorType, locatorValue)).sendKeys(value);
+	}
+	
+	private By getBy(String locatorType, String locatorValue)
+	{
+		
+		By locator = null;
+		
+		switch (locatorType.toLowerCase())
+		{
+		case "id":
+			locator = By.id(locatorValue);
+			break;
+		
+		default:
+			System.out.println("Please pass correct locator");
+			break;
+		}
+		
+		return locator;
+	}
 }

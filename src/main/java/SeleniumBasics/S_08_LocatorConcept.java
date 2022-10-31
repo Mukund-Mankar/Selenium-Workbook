@@ -87,12 +87,16 @@ public class S_08_LocatorConcept
 		//doSendKeys(passwordBy, "password@123");
 		
 		// 6th approach: Element util class with generic methods
-		By emailBy = By.id("input-email");
-		By passwordBy = By.id("input-password");
-		elementUtil.doSendKeys(emailBy, "test@gmail.com");
-		elementUtil.doSendKeys(passwordBy, "password@123");
+		//By emailBy = By.id("input-email");
+		//By passwordBy = By.id("input-password");
+		//elementUtil.doSendKeys(emailBy, "test@gmail.com");
+		//elementUtil.doSendKeys(passwordBy, "password@123");
 		
-		
+		// 7th approach: String locator values
+		String emailId = "input-email";
+		String passwordId = "input-password";
+		elementUtil.doSendKeys("id", emailId, "test@gmail.com");
+		elementUtil.doSendKeys("id", passwordId, "password@123");
 	}
 	
 	// Generic wrapper method
@@ -104,7 +108,33 @@ public class S_08_LocatorConcept
 	// Generic wrapper method
 	public static void doSendKeys(By byLocator, String value)
 	{
-		driver.findElement(byLocator).sendKeys(value);;
+		driver.findElement(byLocator).sendKeys(value);
+	}
+	
+	// Generic wrapper method
+	public static void doSendKeys(String locatorType, String locatorValue, String inputValue)
+	{
+		driver.findElement(getBy(locatorType, locatorValue)).sendKeys(inputValue);
+	}
+	
+	// Generic wrapper method
+	public static By getBy(String locatorType, String locatorValue)
+	{
+		
+		By locator = null;
+		
+		switch (locatorType.toLowerCase())
+		{
+		case "id":
+			locator = By.id(locatorValue);
+			break;
+		
+		default:
+			System.out.println("Please pass correct locator");
+			break;
+		}
+		
+		return locator;
 	}
 	
 }

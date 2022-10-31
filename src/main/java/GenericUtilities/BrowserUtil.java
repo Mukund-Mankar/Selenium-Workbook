@@ -10,7 +10,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 // Wrapper Class
 public class BrowserUtil
 {
-	
+	// The driver should not be static
 	public WebDriver driver;
 	
 	// This method is used to launch the browser on the basis of browser name
