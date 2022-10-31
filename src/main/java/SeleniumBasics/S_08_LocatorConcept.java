@@ -1,8 +1,8 @@
 // Locators
-	// ID
-	// name
+	// ID [ID is always unique inside HTML DOM][1st preference will always be given to id]
+	// name [Name can be duplicate]
 	// tag name
-	// Class name
+	// Class name [We can have same class name for different elements]
 	// CSS
 	// XPath
 	// Link text
