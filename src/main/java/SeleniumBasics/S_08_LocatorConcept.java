@@ -28,7 +28,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class LocatorConcept
+public class S_08_LocatorConcept
 {
 	
 	static WebDriver driver;
