@@ -39,13 +39,37 @@ public class S_10_OtherLocators
 		//elementUtil.doSendKeys(usernameBy, "Username");
 		//elementUtil.doSendKeys(passwordBy, "password");
 		
-		// by CSS Selector
+		// By CSS Selector
 		// Select the element from "Chrome Dev Tools" -> "Elements"
 		// Right click -> Copy -> Copy Selector
-		By usernameBy = By.cssSelector("#loginForm > div > input:nth-child(1)");
-		By passwordBy = By.cssSelector("#loginForm > div > input:nth-child(2)");
-		elementUtil.doSendKeys(usernameBy, "Username");
-		elementUtil.doSendKeys(passwordBy, "password");
+		//By usernameBy = By.cssSelector("#loginForm > div > input:nth-child(1)");
+		//By passwordBy = By.cssSelector("#loginForm > div > input:nth-child(2)");
+		//elementUtil.doSendKeys(usernameBy, "Username");
+		//elementUtil.doSendKeys(passwordBy, "password");
+		
+		// By linktext [Only for links]
+		//String ContactUsLinkText = "Contact";
+		//elementUtil.doClick("linktext", ContactUsLinkText);
+		
+		// By partialLinkText
+			// Use where link text is long
+		
+		// By Tag name [1st example]
+		// Get all the links in a webpage
+		//int count = 0;
+		//By allLinkTextBy = By.tagName("a");
+		//for (int i = 0; i < elementUtil.getElements(allLinkTextBy).size(); i++)
+		//{
+		//	count += 1;
+		//}
+		//System.out.println(count);
+		
+		// By Tag name [2nd example]
+		// There will be only one "h1" tag on a webpage [h1 = heading]
+		//By webpageMainHeadingBy = By.tagName("h1");
+		//System.out.println(elementUtil.getElementText(webpageMainHeadingBy));
+		
+		
 	}
 	
 

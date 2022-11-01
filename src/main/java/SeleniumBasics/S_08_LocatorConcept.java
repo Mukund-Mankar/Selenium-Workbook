@@ -2,13 +2,20 @@
 	// ID [ID is always unique inside HTML DOM][1st preference will always be given to id]
 	// name [Name can be duplicate][2nd preference to name]
 	// tag name
+		// Use Cases: [HTML tag]
+			// Find number of links on a webpage
+			// Find number of images on a webpage
 	// Class name [We can have same class name for different elements]
 	// CSS
 	// XPath [Address of element]
 		// Relative XPath [Recommended]
 		// Absolute XPath
 			// Start from root node [Not recommended]
-	// Link text
+	// Linktext
+		// Text of the link
+		// Linktext could be duplicate
+		// HTML tag of link is always <a></a>
+
 	// Partial link text
 
 // On a webpage: Right click -> Click on "Inspect"
