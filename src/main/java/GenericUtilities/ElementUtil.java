@@ -1,5 +1,6 @@
 package GenericUtilities;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -26,18 +27,18 @@ public class ElementUtil
 		return driver.findElements(byLocator);
 	}
 	
-//	public List<String> getElementsText(By byLocator)
-//	{
-//		List<WebElement> allElements =  getElements(byLocator);
-//		List<String> elementTextList = null;
-//		
-//		for (int i = 0; i < allElements.size(); i++)
-//		{
-//			System.out.println("Hello");
-//		}
-//		
-//		return elementTextList;
-//	}
+	public List<String> getElementsText(By byLocator)
+	{
+		List<WebElement> allElements =  getElements(byLocator);
+		List<String> elementTextList = new ArrayList<String>();
+		
+		for (WebElement eWebElement : allElements)
+		{
+			elementTextList.add(eWebElement.getText());
+		}
+		
+		return elementTextList;
+	}
 	
 	
 	public void doSendKeys(By byLocator, String value)

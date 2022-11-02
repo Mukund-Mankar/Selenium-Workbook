@@ -1,5 +1,6 @@
 package SeleniumBasics;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -62,20 +63,22 @@ public class S_10_OtherLocators
 		
 		// By Tag name [1st example]
 		// Get all link text in a webpage [For any link if there is no text attached, remove that text]
-		By allLinkTextBy = By.tagName("a");
-		for (WebElement myElement : name(allLinkTextBy))
-		{
-			System.out.println(myElement.getText());
-		}
+		//By allLinkTextBy = By.tagName("a");
+		//for (String elementTextString : elementUtil.getElementsText(allLinkTextBy))
+		//{
+		//	if(!elementTextString.isBlank())
+		//	{
+		//		System.out.println(elementTextString);
+		//	}
+		//}
 		
 		// By Tag name [2nd example]
 		// There will be only one "h1" tag on a webpage [h1 = heading]
 		//By webpageMainHeadingBy = By.tagName("h1");
 		//System.out.println(elementUtil.getElementText(webpageMainHeadingBy));
+		
+		// By Tag name [3nd example][Get all images count]
+		
+		
 	}
-	public static List<WebElement> name(By byLoactor)
-	{
-		return driver.findElements(byLoactor);
-	}
-
 }

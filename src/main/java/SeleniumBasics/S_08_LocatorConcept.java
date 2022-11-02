@@ -4,7 +4,7 @@
 	// tag name
 		// Use Cases: [HTML tag]
 			// Find number of links on a webpage
-			// Find number of images on a webpage
+			// Find number of images on a webpage [HTML tag of image is always <img></img>]
 	// Class name [We can have same class name for different elements]
 	// CSS
 	// XPath [Address of element]
