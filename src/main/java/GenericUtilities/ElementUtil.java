@@ -26,13 +26,25 @@ public class ElementUtil
 		return driver.findElements(byLocator);
 	}
 	
+//	public List<String> getElementsText(By byLocator)
+//	{
+//		List<WebElement> allElements =  getElements(byLocator);
+//		List<String> elementTextList = null;
+//		
+//		for (int i = 0; i < allElements.size(); i++)
+//		{
+//			System.out.println("Hello");
+//		}
+//		
+//		return elementTextList;
+//	}
+	
 	
 	public void doSendKeys(By byLocator, String value)
 	{
 		getElement(byLocator).sendKeys(value);
 	}
 	
-	// Capture element text
 	public String getElementText(By byLocator)
 	{
 		return getElement(byLocator).getText();
@@ -51,6 +63,16 @@ public class ElementUtil
 	public void doClick(By byLocator)
 	{
 		getElement(byLocator).click();
+	}
+	
+	public boolean isElementDisplayed(By byLocator)
+	{
+		return getElement(byLocator).isDisplayed();
+	}
+	
+	public boolean isElementDisplayed(String locatorType, String locatorValue)
+	{
+		return getElement(getBy(locatorType, locatorValue)).isDisplayed();
 	}
 	
 	private By getBy(String locatorType, String locatorValue)

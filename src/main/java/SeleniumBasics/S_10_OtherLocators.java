@@ -1,18 +1,24 @@
 package SeleniumBasics;
 
+import java.util.List;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import com.github.dockerjava.api.model.Driver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class S_10_OtherLocators
 {
+	static WebDriver driver;
 
 	public static void main(String[] args)
 	{
 		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
+		driver = new ChromeDriver();
 		
 		GenericUtilities.ElementUtil elementUtil = new GenericUtilities.ElementUtil(driver);
 		
@@ -55,22 +61,21 @@ public class S_10_OtherLocators
 			// Use where link text is long
 		
 		// By Tag name [1st example]
-		// Get all the links in a webpage
-		//int count = 0;
-		//By allLinkTextBy = By.tagName("a");
-		//for (int i = 0; i < elementUtil.getElements(allLinkTextBy).size(); i++)
-		//{
-		//	count += 1;
-		//}
-		//System.out.println(count);
+		// Get all link text in a webpage [For any link if there is no text attached, remove that text]
+		By allLinkTextBy = By.tagName("a");
+		for (WebElement myElement : name(allLinkTextBy))
+		{
+			System.out.println(myElement.getText());
+		}
 		
 		// By Tag name [2nd example]
 		// There will be only one "h1" tag on a webpage [h1 = heading]
 		//By webpageMainHeadingBy = By.tagName("h1");
 		//System.out.println(elementUtil.getElementText(webpageMainHeadingBy));
-		
-		
 	}
-	
+	public static List<WebElement> name(By byLoactor)
+	{
+		return driver.findElements(byLoactor);
+	}
 
 }
