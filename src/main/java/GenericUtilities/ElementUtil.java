@@ -6,6 +6,7 @@ import java.util.List;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class ElementUtil
 {
@@ -116,6 +117,33 @@ public class ElementUtil
 	public boolean isElementPresent(By byLocator)
 	{
 		return (getElementsCount(byLocator) == 0 ? false : true);
+	}
+	
+	// Select By Index method
+	// Use Cases
+			// Dropdown where the items are fixed
+			// Days(1 - 31), Months(1 - 12) dropdown
+	public void doDropdownSelectByIndex(By byLocator, int index)
+	{
+		// No default constructor available
+		// Override constructor takes "Webelement" parameter
+		// "selectByIndex" is a non static method of "Select" class as we can access it by class object reference
+		Select selectByIndexSelect = new Select(getElement(byLocator));
+		selectByIndexSelect.selectByIndex(index);
+	}
+	
+	// Select By Visible Text (Select by element text)
+	public void doDropdownSelectByVisibleText(By byLocator, String visibleText)
+	{
+		Select selectByIndexSelect = new Select(getElement(byLocator));
+		selectByIndexSelect.selectByVisibleText(visibleText);
+	}
+	
+	// Select By Value (select by the key of element's value attribute)
+	public void doDropdownSelectByValue(By byLocator, String value)
+	{
+		Select selectByIndexSelect = new Select(getElement(byLocator));
+		selectByIndexSelect.selectByValue(value);
 	}
 	
 	private By getBy(String locatorType, String locatorValue)
