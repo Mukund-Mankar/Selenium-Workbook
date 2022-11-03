@@ -34,7 +34,10 @@ public class ElementUtil
 		
 		for (WebElement eWebElement : allElements)
 		{
-			elementTextList.add(eWebElement.getText());
+			if(!eWebElement.getText().isBlank())
+			{
+				elementTextList.add(eWebElement.getText());
+			}
 		}
 		
 		return elementTextList;
@@ -76,6 +79,45 @@ public class ElementUtil
 		return getElement(getBy(locatorType, locatorValue)).isDisplayed();
 	}
 	
+	public String getElementAttributeValue(By byLocator, String attributeName)
+	{
+		return getElement(byLocator).getAttribute(attributeName);
+	}
+	
+	public List<String> getElementsAttributeValue(By byLocator, String attributeName)
+	{
+		List<WebElement> allElements =  getElements(byLocator);
+		List<String> elementAttributeTextList = new ArrayList<String>();
+		
+		for (WebElement eWebElement : allElements)
+		{
+			if(!eWebElement.getAttribute(attributeName).isBlank())
+			{
+				elementAttributeTextList.add(eWebElement.getAttribute(attributeName));
+			}	
+		}
+		
+		return elementAttributeTextList;
+	}
+	
+	public int getElementsCount(By byLocator)
+	{
+		return getElements(byLocator).size();
+	}
+	
+	public void printAllStringElements(List<String> allStringElements)
+	{
+		for (String stringElement : allStringElements)
+		{
+			System.out.println(stringElement);
+		}
+	}
+	
+	public boolean isElementPresent(By byLocator)
+	{
+		return (getElementsCount(byLocator) == 0 ? false : true);
+	}
+	
 	private By getBy(String locatorType, String locatorValue)
 	{
 		// Default value of By class is null
@@ -86,8 +128,26 @@ public class ElementUtil
 		case "id":
 			locator = By.id(locatorValue);
 			break;
+		case "name":
+			locator = By.name(locatorValue);
+			break;
+		case "classname":
+			locator = By.className(locatorValue);
+			break;
+		case "cssselector":
+			locator = By.cssSelector(locatorValue);
+			break;
+		case "xpath":
+			locator = By.xpath(locatorValue);
+			break;
+		case "tagname":
+			locator = By.tagName(locatorValue);
+			break;
 		case "linktext":
 			locator = By.linkText(locatorValue);
+			break;
+		case "partiallinktext":
+			locator = By.partialLinkText(locatorValue);
 			break;
 		
 		default:

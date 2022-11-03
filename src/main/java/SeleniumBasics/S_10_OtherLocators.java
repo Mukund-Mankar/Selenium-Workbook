@@ -14,12 +14,11 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class S_10_OtherLocators
 {
-	static WebDriver driver;
 
 	public static void main(String[] args)
 	{
 		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
+		WebDriver driver = new ChromeDriver();
 		
 		GenericUtilities.ElementUtil elementUtil = new GenericUtilities.ElementUtil(driver);
 		
@@ -64,21 +63,15 @@ public class S_10_OtherLocators
 		// By Tag name [1st example]
 		// Get all link text in a webpage [For any link if there is no text attached, remove that text]
 		//By allLinkTextBy = By.tagName("a");
-		//for (String elementTextString : elementUtil.getElementsText(allLinkTextBy))
-		//{
-		//	if(!elementTextString.isBlank())
-		//	{
-		//		System.out.println(elementTextString);
-		//	}
-		//}
+		//elementUtil.printAllStringElements(elementUtil.getElementsText(allLinkTextBy));
 		
 		// By Tag name [2nd example]
 		// There will be only one "h1" tag on a webpage [h1 = heading]
 		//By webpageMainHeadingBy = By.tagName("h1");
 		//System.out.println(elementUtil.getElementText(webpageMainHeadingBy));
 		
-		// By Tag name [3nd example][Get all images count]
-		
-		
+		// By Tag name [3rd example][Get url attached to all links present on the webpage]
+		//By allLinkTextBy = By.tagName("a");
+		//elementUtil.printAllStringElements(elementUtil.getElementsAttributeValue(allLinkTextBy, "href"));
 	}
 }
