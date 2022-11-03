@@ -3,6 +3,7 @@ package GenericUtilities;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.checkerframework.checker.optional.qual.Present;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -144,6 +145,31 @@ public class ElementUtil
 	{
 		Select selectByIndexSelect = new Select(getElement(byLocator));
 		selectByIndexSelect.selectByValue(value);
+	}
+	
+	public List<WebElement> getAllSelectDropdownElements(By byLocator)
+	{
+		Select selectDropdown = new Select(getElement(byLocator));
+		return selectDropdown.getOptions();
+	}
+	
+	public int getAllSelectDropdownElementsCount(By byLocator)
+	{
+		return getAllSelectDropdownElements(byLocator).size();
+	}
+	
+	public boolean isElementTextPresentInSelectDropdown(By byLocator, String elementText)
+	{
+		boolean isPresent = false;
+		for (WebElement webElement : getAllSelectDropdownElements(byLocator))
+		{
+			if(webElement.getText().equals(elementText))
+			{
+				isPresent = true;
+				break;
+			}
+		}
+		return isPresent;
 	}
 	
 	private By getBy(String locatorType, String locatorValue)
