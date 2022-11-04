@@ -10,7 +10,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.Select;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -62,14 +61,7 @@ public class S_15_DropdownHandling_SelectTag
 		
 		// Select the dropdown element without select class [Method - 2]
 		List<WebElement> allDropdownElements_02 = elementUtil.getElements(countryDropdownChildElementsFromParentBy);
-		for (WebElement webElement : allDropdownElements_02)
-		{
-			if(webElement.getText().equals("Maldives"))
-			{
-				webElement.click();
-				break;
-			}
-		}
+		elementUtil.selectDropdownValueWithoutSelectClass(countryDropdownChildElementsFromParentBy, "Spain");
 		
 		
 

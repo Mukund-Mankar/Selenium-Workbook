@@ -172,6 +172,18 @@ public class ElementUtil
 		return isPresent;
 	}
 	
+	public void selectDropdownValueWithoutSelectClass(By byLocator, String elementText)
+	{
+		for (WebElement webElement : getElements(byLocator))
+		{
+			if(webElement.getText().equals("elementText"))
+			{
+				webElement.click();
+				break;
+			}
+		}
+	}
+	
 	private By getBy(String locatorType, String locatorValue)
 	{
 		// Default value of By class is null
