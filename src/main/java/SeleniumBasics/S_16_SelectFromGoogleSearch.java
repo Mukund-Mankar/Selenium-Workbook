@@ -6,6 +6,7 @@
 // Task - Get all the text present in suggestion list
 package SeleniumBasics;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -14,7 +15,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class S_16_SelectFromGoogleSearch
 {
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws InterruptedException
 	{
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
@@ -23,7 +24,16 @@ public class S_16_SelectFromGoogleSearch
 		
 		driver.get("https://www.google.com/");
 		
+		By searchBoxBy = By.name("q");
+		elementUtil.doSendKeys(searchBoxBy, "Persia");
 		
+		Thread.sleep(5000);
+		
+		By allSuggestionsBy = By.xpath("//*[@class='mkHrUc']//*[@class='wM6W7d']");
+		for (String webElement : elementUtil.getElementsText(allSuggestionsBy))
+		{
+			System.out.println(webElement);	
+		}
 	}
 
 }
