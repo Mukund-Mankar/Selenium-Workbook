@@ -45,6 +45,18 @@ public class ElementUtil
 		return elementTextList;
 	}
 	
+	public void SelectWebelementFromList(List<WebElement> webElements, String elementText)
+	{
+		for (WebElement eWebElement : webElements)
+		{
+			if(eWebElement.getText().toLowerCase().contains(elementText.toLowerCase()));
+			{
+				eWebElement.click();
+				break;
+			}
+		}
+	}
+	
 	
 	public void doSendKeys(By byLocator, String value)
 	{

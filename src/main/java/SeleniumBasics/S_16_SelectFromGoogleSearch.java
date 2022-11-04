@@ -1,3 +1,5 @@
+// Task: Search something on google -> A dropdown suggestion comes up -> Click on a specific suggestion 
+
 // Start typing something in google search, a suggestion list comes up without page refresh - Ajax calls
 // The suggestions appearing are called Ajax components
 // The suggestions are coming from the server via the Ajax calls. Browser(DOM) does not maintain the suggestions
@@ -8,7 +10,6 @@
 				// Remove all the event listeners present inside blur
 
 
-// Task - Get all the text present in suggestion list
 package SeleniumBasics;
 
 import org.openqa.selenium.By;
@@ -27,18 +28,23 @@ public class S_16_SelectFromGoogleSearch
 		
 		GenericUtilities.ElementUtil elementUtil = new GenericUtilities.ElementUtil(driver);
 		
-		driver.get("https://www.google.com/");
+		driver.get("https://www.google.com/"); // Try with: http://automationpractice.com/index.php
 		
 		By searchBoxBy = By.name("q");
 		elementUtil.doSendKeys(searchBoxBy, "Persia");
 		
 		Thread.sleep(5000);
 		
-		By allSuggestionsBy = By.xpath("//*[@class='mkHrUc']//*[@class='wM6W7d']");
-		for (String webElement : elementUtil.getElementsText(allSuggestionsBy))
-		{
-			System.out.println(webElement);	
-		}
+		// Method 1: Get all suggestion webelements -> Select webelement whose text matches the string(Get the list -> Iterate over the list)
+		//By allSuggestionsBy = By.xpath("//*[@class='mkHrUc']//*[@class='wM6W7d']");
+		//elementUtil.printAllStringElements(elementUtil.getElementsText(allSuggestionsBy));
+		
+		//May throw [Error] org.openqa.selenium.StaleElementReferenceException
+		// https://stackoverflow.com/questions/12967541/how-to-avoid-staleelementreferenceexception-in-selenium
+		//elementUtil.SelectWebelementFromList(elementUtil.getElements(allSuggestionsBy), "persian Cat");
+		
+		// Method 2 - Select the suggestion webelement by it's text - XPath Magic
+		By suggestionTextBy = By.xpath("//*[@class='UUbT9']//div[@class='pcTkSc']//span[contains(text(),'Persian cat')]");
+		elementUtil.doClick(suggestionTextBy);
 	}
-
 }
