@@ -1,6 +1,11 @@
 // Start typing something in google search, a suggestion list comes up without page refresh - Ajax calls
 // The suggestions appearing are called Ajax components
 // The suggestions are coming from the server via the Ajax calls. Browser(DOM) does not maintain the suggestions
+// To select any element from the suggestion list
+	// Open Chrome DevTools
+		// In the right section, select Event Listeners
+			// In the event Listeners, Goto blur
+				// Remove all the event listeners present inside blur
 
 
 // Task - Get all the text present in suggestion list
