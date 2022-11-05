@@ -49,7 +49,7 @@ public class ElementUtil
 	{
 		for (WebElement eWebElement : webElements)
 		{
-			if(eWebElement.getText().toLowerCase().contains(elementText.toLowerCase()));
+			if(eWebElement.getText().toLowerCase().trim().contains(elementText.toLowerCase().trim()))
 			{
 				eWebElement.click();
 				break;
@@ -82,6 +82,12 @@ public class ElementUtil
 	{
 		getElement(byLocator).click();
 	}
+	
+//	public void doClick(By byLocator, String webElementText)
+//	{
+//		list
+//		getElement(byLocator).click();
+//	}
 	
 	public boolean isElementDisplayed(By byLocator)
 	{

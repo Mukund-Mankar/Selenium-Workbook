@@ -21,8 +21,13 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class S_16_SelectFromGoogleSearch
 {
 
+	String suggestionToBeSelectedString = "Persian cat";
+	
 	public static void main(String[] args) throws InterruptedException
 	{
+		
+		S_16_SelectFromGoogleSearch s_16_SelectFromGoogleSearch = new S_16_SelectFromGoogleSearch();
+		
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		
@@ -38,13 +43,10 @@ public class S_16_SelectFromGoogleSearch
 		// Method 1: Get all suggestion webelements -> Select webelement whose text matches the string(Get the list -> Iterate over the list)
 		//By allSuggestionsBy = By.xpath("//*[@class='mkHrUc']//*[@class='wM6W7d']");
 		//elementUtil.printAllStringElements(elementUtil.getElementsText(allSuggestionsBy));
-		
-		//May throw [Error] org.openqa.selenium.StaleElementReferenceException
-		// https://stackoverflow.com/questions/12967541/how-to-avoid-staleelementreferenceexception-in-selenium
 		//elementUtil.SelectWebelementFromList(elementUtil.getElements(allSuggestionsBy), "persian Cat");
 		
 		// Method 2 - Select the suggestion webelement by it's text - XPath Magic
-		By suggestionTextBy = By.xpath("//*[@class='UUbT9']//div[@class='pcTkSc']//span[contains(text(),'Persian cat')]");
+		By suggestionTextBy = By.xpath("//*[@class='UUbT9']//div[@class='pcTkSc']//span[contains(text(),'"+s_16_SelectFromGoogleSearch.suggestionToBeSelectedString+"')]");
 		elementUtil.doClick(suggestionTextBy);
 	}
 }
