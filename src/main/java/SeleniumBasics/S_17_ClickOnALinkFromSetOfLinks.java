@@ -25,8 +25,5 @@ public class S_17_ClickOnALinkFromSetOfLinks
 		// All footer link elements
 		By allFooterLinkElements = By.xpath("/html/body/nav//a");		
 		elementUtil.SelectWebelementFromList(elementUtil.getElements(allFooterLinkElements), "Discover");
-		
-
 	}
-
 }
