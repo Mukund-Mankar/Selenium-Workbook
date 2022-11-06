@@ -4,10 +4,15 @@
 	// tag name
 		// Use Cases: [HTML tag]
 			// Find number of links on a webpage
-			// Find number of images on a webpage [HTML tag of image is always <img></img>]
+			// Find number of images on a webpage [HTML tag of image is always <img> </img>]
 	// Class name [We can have same class name for different elements]
+		// The value for class attribute may contains more than one class name 
+		// [Eg. <input class="c1 c2 c3 c4">] --> Locator: By classBy = By.className("c1");
+			// Only one class name is required
 	// CSS
 	// XPath [Address of element]
+		// Every browser runs it's own XPath engine. The engines are strong. XPath is not slower than CSS
+			// The XPath index my differ
 		// Relative XPath [Recommended]
 		// Absolute XPath
 			// Start from root node [Not recommended]
