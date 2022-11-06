@@ -1,5 +1,9 @@
+// For a given company, find it's current price
+
+
 package SeleniumBasics;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -13,13 +17,15 @@ public class S_20_DynamicWebtable_Sample02
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		
+		String companyNameString = "DCB Bank";
+		
 		driver.manage().window().maximize();
 		
 		GenericUtilities.ElementUtil elementUtil = new GenericUtilities.ElementUtil(driver);
 		
 		driver.get("https://money.rediff.com/gainers/bse/daily/groupall");
 		
-		// Find first company whose % change is <=15
-		
+		By companyCurrentPrice = By.xpath("//a[contains(text(),'"+companyNameString+"')]/../following-sibling::td[3]");
+		System.out.println(elementUtil.getElementText(companyCurrentPrice));
 	}
 }

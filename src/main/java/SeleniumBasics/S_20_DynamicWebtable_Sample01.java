@@ -4,6 +4,11 @@
 //Get parent element
 // WebElement parent = child.findElement(By.xpath(".."));
 
+
+
+// Task: Find the company in group A whose %change is highest
+
+
 package SeleniumBasics;
 
 import java.util.List;
@@ -23,7 +28,7 @@ public class S_20_DynamicWebtable_Sample01
 		WebDriver driver = new ChromeDriver();
 		
 		WebElement firstAGroupElement = null;
-		WebElement aGroupElementRowElement = null;
+		WebElement aGroupElementSiblingCompanyElement = null;
 		
 		driver.manage().window().maximize();
 		
@@ -31,10 +36,11 @@ public class S_20_DynamicWebtable_Sample01
 		
 		driver.get("https://money.rediff.com/gainers/bse/daily/groupall");
 		
-		// Find the first company in group A whose %change is highest
+		// Get all group elements
 		By allGroupsElementsBy = By.xpath("//table[@class='dataTable']//tr/td[2]");
 		List<WebElement> allGroupsElements = elementUtil.getElements(allGroupsElementsBy);
 		
+		// Select 1st group A element
 		for (WebElement webElement : allGroupsElements)
 		{
 			if(webElement.getText().equals("A"))
@@ -44,8 +50,17 @@ public class S_20_DynamicWebtable_Sample01
 			}
 		}
 		
-		// Get the company name (From child element, go to parent element --> from parent element to to specific child element)
-		aGroupElementRowElement = firstAGroupElement.findElement(By.xpath("../td/a"));
-		System.out.println(aGroupElementRowElement.getText());				
+		// Get the company name [Method - 01]
+			// From group A element, go to parent element --> from parent element get the company name element
+		aGroupElementSiblingCompanyElement = firstAGroupElement.findElement(By.xpath("../td/a"));
+		
+		// Print the text of company name element
+		System.out.println(aGroupElementSiblingCompanyElement.getText());
+		
+		// Get the company name [Method - 01]
+			// // From group A element, go to the sibling company element
+		//aGroupElementSiblingCompanyElement = firstAGroupElement.findElement(By.xpath("preceding-sibling::td"));
+		aGroupElementSiblingCompanyElement = firstAGroupElement.findElement(By.xpath("preceding-sibling::td/a"));
+		System.out.println(aGroupElementSiblingCompanyElement.getText());
 	}
 }
