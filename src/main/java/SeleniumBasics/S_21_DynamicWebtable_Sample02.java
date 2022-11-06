@@ -9,7 +9,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class S_20_DynamicWebtable_Sample02
+public class S_21_DynamicWebtable_Sample02
 {
 
 	public static void main(String[] args)
