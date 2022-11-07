@@ -38,8 +38,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class S_19_XPath
 {
 	public static void main(String[] args)
-	{
-		
+	{	
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		
