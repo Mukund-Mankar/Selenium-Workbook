@@ -57,6 +57,21 @@ public class ElementUtil
 		}
 	}
 	
+	public void SelectWebelementsFromList(List<WebElement> webElements, List<String> elementText)
+	{
+		while (elementText.size() >  0)
+		{
+			for (WebElement eWebElement : webElements)
+			{
+				if(elementText.contains(eWebElement.getText().toLowerCase().trim()))
+				{
+					eWebElement.click();
+					elementText.remove(eWebElement.getText().toLowerCase().trim());
+				}
+			}
+		}
+	}
+	
 	
 	public void doSendKeys(By byLocator, String value)
 	{
