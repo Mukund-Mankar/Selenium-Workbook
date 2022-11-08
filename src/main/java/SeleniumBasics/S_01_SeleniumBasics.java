@@ -1,6 +1,7 @@
 package SeleniumBasics;
 // Selenium
 	// Selenium is a library to help simulate all the user actions on the browser
+	// Selenium interacts only with the elements which are visible on the page
 
 // Advantages
 	// Selenium is only for Web UI automation
@@ -49,6 +50,8 @@ package SeleniumBasics;
 // Project Creation
 	// Create maven project: Group ID: org.apache.maven.archetypes, Artifact id: maven-archetype-quickstart
 	// src/test/java is only for writing test cases
+
+
 
 
 
