@@ -19,29 +19,19 @@ public class S_29_ActionsClassDragDrop
 		driver.manage().window().maximize();
 		
 		GenericUtilities.ElementUtil elementUtil = new GenericUtilities.ElementUtil(driver);
+		GenericUtilities.ActionsUtil actionsUtil = new GenericUtilities.ActionsUtil(driver);
 		
 		driver.get("https://jqueryui.com/resources/demos/droppable/default.html");
 		
 		By draggabelElementBy = By.id("draggable");
 		By droppableElementBy = By.id("droppable");
 		
-		Actions actions = new Actions(driver);
+		actionsUtil.doDragAndDrop(draggabelElementBy, droppableElementBy);
 		
-		// Method - 01
-		// Observe Builder pattern
-			// Every method is returning same current class object
-//		actions
-//			.clickAndHold(elementUtil.getElement(draggabelElementBy))
-//			.moveToElement(elementUtil.getElement(droppableElementBy))
-//			.release()
-//			.build()
-//			.perform();
 		
-		// Method - 02
-		actions
-			.dragAndDrop(elementUtil.getElement(draggabelElementBy), elementUtil.getElement(droppableElementBy))
-			.build()
-			.perform();
+		
+
+
 		
 		
 	}
