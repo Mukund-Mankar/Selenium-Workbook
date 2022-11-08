@@ -61,4 +61,20 @@ public class ActionsUtil
 		.build()
 		.perform();
 	}
+	
+	public void doSendKeys(By byLocator, String value)
+	{
+		actions
+		.sendKeys(elementUtil.getElement(byLocator), value)
+		.build()
+		.perform();
+	}
+	
+	public void doClick(By byLocator)
+	{
+		actions
+		.click(elementUtil.getElement(byLocator))
+		.build()
+		.perform();
+	}
 }
