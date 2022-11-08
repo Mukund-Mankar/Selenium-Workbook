@@ -21,8 +21,11 @@
 			// url is getting changed after 5 seconds
 			// page title is taking time to display 
 			// Alert is taking time to display
+// Once the DOM is loaded, all the DOM elements will be visible on the page
 // We can nullify the implicit wait during program execution
 	// driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
+// Implicit Wait: Default polling time 500 ms
+	// If the wait is of 10 seconds, after every 500 ms, selenium poll the application for element presence
 
 
 
@@ -53,6 +56,7 @@ public class S_34_ImplicitWaitConcept
 		
 		// Invalid locator
 		// Due to Implicit wait, the error will be thrown after 10 seconds 
+		// [Exception] org.openqa.selenium.NoSuchElementException
 		By usernameBy = By.id("login1Dummy");
 		elementUtil.doSendKeys(usernameBy, "Username");
 		

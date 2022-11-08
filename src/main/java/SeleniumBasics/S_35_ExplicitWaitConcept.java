@@ -5,15 +5,39 @@
 	// It can be applied to specific webelement
 // It can be applied for web elements and all non web elements(alert, url, page title) as well
 // It can be customized for a specific element as per the use case
+// WebdriverWait: Default polling time 500 ms
+	// If the wait is of 10 seconds, after every 500 ms, selenium poll the application for element presence
 
 
 package SeleniumBasics;
 
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class S_35_ExplicitWaitConcept
 {
-
 	public static void main(String[] args)
 	{
 		
+		WebDriverManager.chromedriver().setup();
+		WebDriver driver = new ChromeDriver();
+		
+		GenericUtilities.ElementUtil elementUtil = new GenericUtilities.ElementUtil(driver);
+		GenericUtilities.WaitUtils waitUtils = new GenericUtilities.WaitUtils(driver);
+		
+		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
+		
+		By usernameBy = By.xpath("//input[@id='login1']");
+		By passwordBy = By.id("password");
+		By signInBy = By.xpath("//input[@title='Sign in']");
+
+		elementUtil.doSendKeys(waitUtils.isPresenceOfElementLocated(usernameBy, 10), "User name");
+		elementUtil.doSendKeys(waitUtils.isPresenceOfElementLocated(passwordBy, 8, 1000), "Password");
+		elementUtil.doClick(waitUtils.isPresenceOfElementLocated(signInBy, 0));
 	}
 }

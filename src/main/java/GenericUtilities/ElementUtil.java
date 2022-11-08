@@ -77,6 +77,11 @@ public class ElementUtil
 		getElement(byLocator).sendKeys(value);
 	}
 	
+	public void doSendKeys(WebElement webElement, String value)
+	{
+		webElement.sendKeys(value);
+	}
+	
 	public String getElementText(By byLocator)
 	{
 		return getElement(byLocator).getText();
@@ -97,11 +102,10 @@ public class ElementUtil
 		getElement(byLocator).click();
 	}
 	
-//	public void doClick(By byLocator, String webElementText)
-//	{
-//		list
-//		getElement(byLocator).click();
-//	}
+	public void doClick(WebElement webElement)
+	{
+		webElement.click();
+	}
 	
 	public boolean isElementDisplayed(By byLocator)
 	{

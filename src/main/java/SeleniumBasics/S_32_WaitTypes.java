@@ -19,4 +19,3 @@
 	// WebdriverWait(explicit wait) class extends FluentWait
 		// WebdriverWait is only inheriting FluentWait methods
 		// WebdriverWait has no class methods of it's own
-// WebdriverWait and FluentWait both are same type of wait and can be used interchangeably
