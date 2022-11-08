@@ -1,6 +1,6 @@
 // Webdriver API
 	// Interface: SearchContext  [Methods declared: FindElement(), FindElements()]
-	// Interface: WebDriver extends SearchContext [Methods declared: get(), click(), sendKeys(), close()] etc.
+	// Interface: WebDriver extends SearchContext [Methods declared: get(), click(), sendKeys(), close()] etc. and TakeScreenshot
 	// Class: "RemoteWebDriver implements WebDriver, JavaScriptExecutor and TakeScreenshot
 		// All the methods of WebDriver interface is implemented in RemoteWebDriver
 		// RemoteWebDriver class can execute WebDriver commands on a browser running on a different (remote) machine

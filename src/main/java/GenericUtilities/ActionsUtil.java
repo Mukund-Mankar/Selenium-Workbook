@@ -8,6 +8,11 @@
 	// Drag drop
 	// Move to specific element
 
+// When to use these methods
+	// When the webelement is visible on the page but selenium is not able to interact with the element [ElementNotInteractableException]
+		// When the webelement in question is overlapped by some other webelement
+		// 
+
 
 package GenericUtilities;
 

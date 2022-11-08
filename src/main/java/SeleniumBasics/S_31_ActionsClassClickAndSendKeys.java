@@ -16,7 +16,6 @@ public class S_31_ActionsClassClickAndSendKeys
 				
 		driver.manage().window().maximize();
 		
-		GenericUtilities.ElementUtil elementUtil = new GenericUtilities.ElementUtil(driver);
 		GenericUtilities.ActionsUtil actionsUtil = new GenericUtilities.ActionsUtil(driver);
 		
 		driver.get("https://mail.rediff.com/cgi-bin/login.cgi");
@@ -31,6 +30,10 @@ public class S_31_ActionsClassClickAndSendKeys
 		actionsUtil.doSendKeys(usernameBy, "My Username");
 		actionsUtil.doSendKeys(passwordBy, "My Password");
 		
+		// This method is different from WebElement.click()
+			// Clicks in the middle of the given element.
+			// Equivalent to: Actions.moveToElement(onElement).click()
+				// // This method first move to the element and then perform click()
 		actionsUtil.doClick(signInBy);
 
 	}
