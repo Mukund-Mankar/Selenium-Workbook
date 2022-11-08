@@ -18,7 +18,7 @@
 // Drawback_05: It is only and only applicable for web elements. It can not be applied for non-web elements
 	// It can not be applied for:
 		// Alerts, url, page titles
-			// url is getting changed after 5 seconds
+			// url is taking time to load during navigation
 			// page title is taking time to display 
 			// Alert is taking time to display
 // Once the DOM is loaded, all the DOM elements will be visible on the page

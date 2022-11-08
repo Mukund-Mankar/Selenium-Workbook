@@ -1,6 +1,7 @@
 package GenericUtilities;
 
 import java.time.Duration;
+import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -22,6 +23,7 @@ public class WaitUtils
 	
 	// Wait for the element to be present inside the DOM
 	// The element could be invisible inside the DOM as well
+	// Equivalent to driver.findElement(byLocator) but with wait
 	public WebElement isPresenceOfElementLocated(By byLocator, int waitForTimeinSeconds)
 	{
 		// Create object of WebdriverWait
@@ -37,8 +39,6 @@ public class WaitUtils
 		return webElement;
 	}
 	
-	// Wait for the element to be present inside the DOM
-	// The element could be invisible inside the DOM as well
 	public WebElement isPresenceOfElementLocated(By byLocator, int waitForTimeinSeconds, long pollingTime)
 	{
 		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds), Duration.ofMillis(pollingTime));		
@@ -48,6 +48,7 @@ public class WaitUtils
 	
 	// Wait for the element to be present inside the DOM
 	// The element should be visible in the page as well
+	// Equivalent to driver.findElement(byLocator) but with wait
 	public WebElement isVisibilityOfElementLocated(By byLocator, int waitForTimeinSeconds)
 	{
 		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));
@@ -55,12 +56,24 @@ public class WaitUtils
 		return webElement;
 	}
 	
-	// Wait for the element to be present inside the DOM
-	// The element should be visible in the page as well
 	public WebElement isVisibilityOfElementLocated(By byLocator, int waitForTimeinSeconds, long pollingTime)
 	{
 		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds), Duration.ofMillis(pollingTime));		
 		WebElement webElement = webDriverWait.until(ExpectedConditions.visibilityOfElementLocated(byLocator));
 		return webElement;
+	}
+	
+	public List<WebElement> isVisibilityOfElementsLocated(By byLocator, int waitForTimeinSeconds)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));
+		List<WebElement> webElements = webDriverWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
+		return webElements;
+	}
+	
+	public List<WebElement> isVisibilityOfElementsLocated(By byLocator, int waitForTimeinSeconds, long pollingTime)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds), Duration.ofMillis(pollingTime));
+		List<WebElement> webElements = webDriverWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
+		return webElements;
 	}
 }

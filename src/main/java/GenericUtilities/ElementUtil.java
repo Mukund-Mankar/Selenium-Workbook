@@ -143,6 +143,11 @@ public class ElementUtil
 		return getElements(byLocator).size();
 	}
 	
+	public int getElementsCount(List<WebElement> webElements)
+	{
+		return webElements.size();
+	}
+	
 	public void printAllStringElements(List<String> allStringElements)
 	{
 		for (String stringElement : allStringElements)

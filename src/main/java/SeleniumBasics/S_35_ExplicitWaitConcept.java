@@ -35,9 +35,13 @@ public class S_35_ExplicitWaitConcept
 		By usernameBy = By.xpath("//input[@id='login1']");
 		By passwordBy = By.id("password");
 		By signInBy = By.xpath("//input[@title='Sign in']");
+		
+		By topHeadlinesBy = By.xpath("//div[@id='top_news_container']//a");
 
 		elementUtil.doSendKeys(waitUtils.isPresenceOfElementLocated(usernameBy, 10), "User name");
 		elementUtil.doSendKeys(waitUtils.isPresenceOfElementLocated(passwordBy, 8, 1000), "Password");
 		elementUtil.doClick(waitUtils.isPresenceOfElementLocated(signInBy, 0));
+		
+		System.out.println(elementUtil.getElementsCount(waitUtils.isVisibilityOfElementsLocated(topHeadlinesBy, 10)));
 	}
 }
