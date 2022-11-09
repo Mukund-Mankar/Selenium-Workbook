@@ -5,9 +5,13 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class WaitUtils
@@ -127,6 +131,45 @@ public class WaitUtils
 	{
 		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));		
 		WebElement webElement = webDriverWait.until(ExpectedConditions.elementToBeClickable(byLocator));
+		return webElement;
+	}
+	
+	// Fluent Wait
+	// Create the object of FluentWait class referred by parent interface reference variable
+	// Parent interface contains only until() method
+	// Wait<WebDriver>: Apply the wait to WebDriver
+	// Let the method of FluentWait class "withTimeout()", "pollingEvery()", "ignoring()" and "withMessage" be attached to the object
+		// Every method is returning this keyword - Builder Pattern
+	//Wait<WebDriver> wait = new FluentWait<WebDriver>(driver);
+	public WebElement isPresenceOfElementLocated_FluentWait(By byLocator, int waitForTimeinSeconds, long pollingTime)
+	{
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver)
+				.withTimeout(Duration.ofSeconds(waitForTimeinSeconds))
+				.pollingEvery(Duration.ofMillis(500))
+				.ignoring(NoSuchElementException.class)
+				.ignoring(StaleElementReferenceException.class)
+				.withMessage("Element not found ... ");
+
+		WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(byLocator));
+		return webElement;
+	}
+	
+	// WebDriverWait class is a child of FluentWait class
+		// Every actions performed with FluentWait class can also be performed with WebDriverWait class
+	// Selenium has defined one class WebDriverWait() as the child of FluentWait() class
+		// WebDriverWait() contains no method of it's own
+		// WebDriverWait() is recommended to use over FluentWait()
+	public WebElement isPresenceOfElementLocated_FluentWait_COPY(By byLocator, int waitForTimeinSeconds, long pollingTime)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));
+		
+		webDriverWait
+		.pollingEvery(Duration.ofMillis(pollingTime))
+		.ignoring(NoSuchElementException.class)
+		.ignoring(StaleElementReferenceException.class)
+		.withMessage("Element not found ... ");
+		
+		WebElement webElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(byLocator));
 		return webElement;
 	}
 }
