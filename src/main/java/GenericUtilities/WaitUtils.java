@@ -76,4 +76,32 @@ public class WaitUtils
 		List<WebElement> webElements = webDriverWait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(byLocator));
 		return webElements;
 	}
+	
+	public boolean ifUrlContainsText(String urlTextString, int waitForTimeinSeconds)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));		
+		boolean ifURLContainsText = webDriverWait.until(ExpectedConditions.urlContains(urlTextString));
+		return ifURLContainsText;
+	}
+	
+	public boolean ifUrlIs(String urlString, int waitForTimeinSeconds)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));		
+		boolean ifUrlIs = webDriverWait.until(ExpectedConditions.urlToBe(urlString));
+		return ifUrlIs;
+	}
+	
+	public boolean ifTitleContainsText(String titleTextString, int waitForTimeinSeconds)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));		
+		boolean ifTitleContainsText = webDriverWait.until(ExpectedConditions.titleContains(titleTextString));
+		return ifTitleContainsText;
+	}
+	
+	public boolean ifTitleIs(String titleString, int waitForTimeinSeconds)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));		
+		boolean ifTitleIs = webDriverWait.until(ExpectedConditions.titleIs(titleString));
+		return ifTitleIs;
+	}
 }
