@@ -3,6 +3,7 @@ package GenericUtilities;
 import java.time.Duration;
 import java.util.List;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -103,5 +104,29 @@ public class WaitUtils
 		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));		
 		boolean ifTitleIs = webDriverWait.until(ExpectedConditions.titleIs(titleString));
 		return ifTitleIs;
+	}
+	
+	public Alert isAlertPresent(int waitForTimeinSeconds)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));		
+		Alert alert = webDriverWait.until(ExpectedConditions.alertIsPresent());
+		return alert;
+	}
+	
+	// Wait for the frame to be present
+	// Switch to frame: Similar to "driver.switchTo().frame("");"
+	public WebDriver isFrameAvailableAndSwitchToIt(By byLocator, int waitForTimeinSeconds)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));		
+		WebDriver driver = webDriverWait.until(ExpectedConditions.frameToBeAvailableAndSwitchToIt(byLocator));
+		return driver;
+	}
+	
+	// Check if element is visible and enabled for click
+	public WebElement ifElementVisibleAndClickable(By byLocator, int waitForTimeinSeconds)
+	{
+		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));		
+		WebElement webElement = webDriverWait.until(ExpectedConditions.elementToBeClickable(byLocator));
+		return webElement;
 	}
 }

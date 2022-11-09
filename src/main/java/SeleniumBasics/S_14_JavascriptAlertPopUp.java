@@ -16,7 +16,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class S_14_JavascriptAlertPopUp
 {
 
-	public static void main(String[] args)
+	public static void main(String[] args) throws InterruptedException
 	{
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
@@ -27,7 +27,6 @@ public class S_14_JavascriptAlertPopUp
 		
 		By signInButtonBy = By.className("signinbtn");
 		elementUtil.doClick(signInButtonBy);
-		
 		// An alert pops up
 		
 		// Move driver focus from webpage to alert pop-up
@@ -36,5 +35,4 @@ public class S_14_JavascriptAlertPopUp
 		System.out.println(currentAlert.getText());
 		currentAlert.accept();
 	}
-
 }
