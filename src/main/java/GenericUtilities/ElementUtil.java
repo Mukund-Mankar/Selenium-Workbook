@@ -8,6 +8,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
+//Manually import static packages
+//Contains static methods
+import static org.openqa.selenium.support.locators.RelativeLocator.*;
+
 public class ElementUtil
 {
 	private WebDriver driver;
@@ -85,6 +89,11 @@ public class ElementUtil
 	public String getElementText(By byLocator)
 	{
 		return getElement(byLocator).getText();
+	}
+	
+	public String getElementText(WebElement webElement)
+	{
+		return webElement.getText();
 	}
 	
 	public void doSendKeys(String locatorType, String locatorValue, String value)
@@ -223,6 +232,35 @@ public class ElementUtil
 				break;
 			}
 		}
+	}
+	
+	// Find the webelement "webElementToFind" which is to the right of "handleWebElement" on the web page
+	public WebElement getWebElementToTheRightOf(By webElementToFind, By handleWebElement)
+	{
+		return driver.findElement(with(webElementToFind).toRightOf(handleWebElement));
+	}
+	
+	// Find the webelement "webElementToFind" which is to the left of "handleWebElement" on the web page
+	public WebElement getWebElementToTheLeftOf(By webElementToFind, By handleWebElement)
+	{
+		return driver.findElement(with(webElementToFind).toLeftOf(getElement(handleWebElement)));
+	}
+	
+	// Find the webelement "webElementToFind" which is above "handleWebElement" on the web page
+	public WebElement getwebElementAbove(By webElementToFind, By handleWebElement)
+	{
+		return driver.findElement(with(webElementToFind).above(getElement(handleWebElement)));
+	}
+	
+	// Find the webelement "webElementToFind" which is below "handleWebElement" on the web page
+	public WebElement getwebElementBelow(By webElementToFind, By handleWebElement)
+	{
+		return driver.findElement(with(webElementToFind).below(getElement(handleWebElement)));
+	}
+	
+	public void webElementToTheLeftOf()
+	{
+		
 	}
 	
 	private By getBy(String locatorType, String locatorValue)

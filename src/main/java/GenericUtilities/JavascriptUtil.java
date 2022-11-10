@@ -158,7 +158,6 @@ public class JavascriptUtil
 					e.printStackTrace();
 				}
 				
-				
 				loadingStatus = jsExecutor.executeScript("return document.readyState;").toString();
 				System.out.println("current page loading status: " + loadingStatus);
 				if (loadingStatus.equals("complete"))
