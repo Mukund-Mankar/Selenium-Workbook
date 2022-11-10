@@ -24,6 +24,7 @@ public class WaitUtils
 	public WaitUtils(WebDriver driver)
 	{
 		this.driver = driver;
+		elementUtil = new ElementUtil(driver);
 	}
 	
 	// Wait for the element to be present inside the DOM
@@ -139,6 +140,7 @@ public class WaitUtils
 	// Parent interface contains only until() method
 	// Wait<WebDriver>: Apply the wait to WebDriver
 	// Let the method of FluentWait class "withTimeout()", "pollingEvery()", "ignoring()" and "withMessage" be attached to the object
+	// Exceptions are not passed as parameter
 		// Every method is returning this keyword - Builder Pattern
 	//Wait<WebDriver> wait = new FluentWait<WebDriver>(driver);
 	public WebElement isPresenceOfElementLocated_FluentWait(By byLocator, int waitForTimeinSeconds, long pollingTime)
@@ -148,7 +150,7 @@ public class WaitUtils
 				.pollingEvery(Duration.ofMillis(500))
 				.ignoring(NoSuchElementException.class)
 				.ignoring(StaleElementReferenceException.class)
-				.withMessage("Element not found ... ");
+				.withMessage(Errors.ELEMENT_NOT_FOUND_EXCEPTION_MESSAGE);
 
 		WebElement webElement = wait.until(ExpectedConditions.presenceOfElementLocated(byLocator));
 		return webElement;
@@ -159,6 +161,7 @@ public class WaitUtils
 	// Selenium has defined one class WebDriverWait() as the child of FluentWait() class
 		// WebDriverWait() contains no method of it's own
 		// WebDriverWait() is recommended to use over FluentWait()
+		// Prefer using WebDriverWait() - With or without fluent wait methods 
 	public WebElement isPresenceOfElementLocated_FluentWait_COPY(By byLocator, int waitForTimeinSeconds, long pollingTime)
 	{
 		WebDriverWait webDriverWait = new WebDriverWait(driver, Duration.ofSeconds(waitForTimeinSeconds));
@@ -167,9 +170,55 @@ public class WaitUtils
 		.pollingEvery(Duration.ofMillis(pollingTime))
 		.ignoring(NoSuchElementException.class)
 		.ignoring(StaleElementReferenceException.class)
-		.withMessage("Element not found ... ");
+		.withMessage(Errors.ELEMENT_NOT_FOUND_EXCEPTION_MESSAGE);
 		
 		WebElement webElement = webDriverWait.until(ExpectedConditions.presenceOfElementLocated(byLocator));
 		return webElement;
+	}
+	
+	public WebElement customWait(By byLocator, int maxTimeoutToWait, Long pollingIntervalInMilliSeconds)
+	{	
+		// Let the Webelement be null
+		WebElement element = null;
+		
+		int attemptCount = 0;
+		
+		// Perform retry attempts
+		while (attemptCount < maxTimeoutToWait)
+		{
+			try
+			{
+				element = elementUtil.getElement(byLocator);
+				break;
+			}
+			
+			catch (NoSuchElementException e)
+			{
+				System.out.println("Element is not found in attempt: " + attemptCount);
+				try
+				{
+					Thread.sleep(pollingIntervalInMilliSeconds);
+				}
+				catch (InterruptedException e1)
+				{
+					e1.printStackTrace();
+				}
+			}
+			attemptCount++;
+		}
+		
+		if(element == null)
+		{
+			try
+			{
+				throw new Exception("NoSuchElementFound");
+			}
+			catch (Exception e)
+			{
+				System.out.println("Self Exception - Element not found within " + maxTimeoutToWait + " seconds");
+			}
+			
+		}
+		return element;
 	}
 }
