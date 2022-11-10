@@ -34,6 +34,7 @@ public class S_31_ActionsClassClickAndSendKeys
 			// Clicks in the middle of the given element.
 			// Equivalent to: Actions.moveToElement(onElement).click()
 				// // This method first move to the element and then perform click()
+		// The Webelement should be visible on the page
 		actionsUtil.doClick(signInBy);
 
 	}

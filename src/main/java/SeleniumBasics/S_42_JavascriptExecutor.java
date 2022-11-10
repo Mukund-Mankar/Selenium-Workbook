@@ -11,6 +11,8 @@
 
 package SeleniumBasics;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -18,22 +20,56 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class S_42_JavascriptExecutor
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws InterruptedException
 	{
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		
-		driver.get("https://www.freshworks.com/");
+		driver.manage().window().maximize();
 		
+		driver.get("https://www.orangehrm.com/");
+		
+		GenericUtilities.ElementUtil elementUtil = new GenericUtilities.ElementUtil(driver);
 		GenericUtilities.JavascriptUtil javascriptUtil = new GenericUtilities.JavascriptUtil(driver);
+		
+		By topCarouselBy = By.xpath("//div[@class='carousel-inner']");
+		By companyLogoBy = By.xpath("(//img[@alt='OrangeHRM Logo'])[1]");
+		By topRightButtonsBy = By.xpath("(//ul[@class='nav navbar-nav navbar-right extended-nav'])[2]");
 		
 		System.out.println(javascriptUtil.getTitle());
 		
-		//javascriptUtil.generateAlert("This is sample alert");
+		javascriptUtil.scrollToBottom();
 		
-		//System.out.println(javascriptUtil.getpageInnerText());
+		Thread.sleep(3000);
+		
+		javascriptUtil.scrollByPixel("-500");
+		
+		Thread.sleep(3000);
+		
+		javascriptUtil.scrollToWebElement(elementUtil.getElement(topCarouselBy));
+		
+		Thread.sleep(3000);
+		
+		javascriptUtil.scrollToUp();
+		
+		Thread.sleep(3000);
 		
 		javascriptUtil.refreshPage();
 		
+		Thread.sleep(3000);
+		
+		javascriptUtil.flashWebElement(elementUtil.getElement(companyLogoBy));
+		
+		Thread.sleep(3000);
+		
+		javascriptUtil.drawBorder(elementUtil.getElement(topRightButtonsBy));
+		
+		Thread.sleep(3000);
+		
+		System.out.println(javascriptUtil.getpageInnerText());
+		
+		Thread.sleep(3000);
+		
+		javascriptUtil.generateAlert("All Javascript actions completed on this page - Thanks");
 	}
 }
