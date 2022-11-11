@@ -137,6 +137,7 @@ public class JavascriptUtil
 		jsExecutor.executeScript("arguments[0].style.border='3px solid red'", webElement);
 	}
 	
+	// After switch to a different url - wait for the page to be loaded completely
 	public void waitForPageLoaded()
 	{
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
