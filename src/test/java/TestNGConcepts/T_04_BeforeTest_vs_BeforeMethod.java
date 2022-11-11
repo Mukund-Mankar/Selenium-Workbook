@@ -29,6 +29,9 @@
 
 package TestNGConcepts;
 
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -63,9 +66,10 @@ public class T_04_BeforeTest_vs_BeforeMethod
 		boolean flag = driver.findElement(By.name("q")).isDisplayed();
 		
 		// Assert class is overloaded
-		Assert.assertTrue(flag);
+		AssertJUnit.assertTrue(flag);
 	}
 	
+	@AfterMethod
 	@AfterTest
 	public void tearDown()
 	{

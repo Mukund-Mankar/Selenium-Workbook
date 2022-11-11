@@ -3,15 +3,13 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="ApplicationTest.T_07_DependsOnMethodConcept">
+      <class name="AppTest.OpenCartTest">
         <methods>
-          <include name="loginTest"/>
-          <include name="launchBrowser"/>
-          <include name="dashboardPageTest"/>
-          <include name="createUserTest"/>
-          <include name="searchTest"/>
+          <include name="setup"/>
+          <include name="tearDown"/>
+          <include name="mainLogoTest"/>
         </methods>
-      </class> <!-- ApplicationTest.T_07_DependsOnMethodConcept -->
+      </class> <!-- AppTest.OpenCartTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

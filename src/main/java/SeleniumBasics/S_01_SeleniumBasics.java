@@ -50,6 +50,10 @@ package SeleniumBasics;
 // Project Creation
 	// Create maven project: Group ID: org.apache.maven.archetypes, Artifact id: maven-archetype-quickstart
 	// src/test/java is only for writing test cases
+	// Right click project -> New -> Source Folder
+		// Name it: src/test/resources
+		// This source folder will contain all the external files used in the project
+			// Example: xml files, json files, properties, excel sheets etc
 
 
 
