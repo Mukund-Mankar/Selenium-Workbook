@@ -19,3 +19,4 @@ public class GoogleTest extends _BaseTest
 		AssertJUnit.assertTrue(flag);
 	}
 }
+
