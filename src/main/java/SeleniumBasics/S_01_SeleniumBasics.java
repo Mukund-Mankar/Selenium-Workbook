@@ -1,4 +1,3 @@
-package SeleniumBasics;
 // Selenium
 	// Selenium is a library to help simulate all the user actions on the browser
 	// Selenium interacts only with the elements which are visible on the page

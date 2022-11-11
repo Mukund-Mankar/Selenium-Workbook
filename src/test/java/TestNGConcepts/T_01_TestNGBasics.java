@@ -53,3 +53,5 @@
 // To run a single @Test from a class
 	// Click on the test name  -> Run As -> TestNG Test
 
+// In TestNG, we do not do method overloading with @Test
+

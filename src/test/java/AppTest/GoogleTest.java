@@ -12,7 +12,6 @@ public class GoogleTest extends _BaseTest
 	@Test
 	public void searchFieldTest()
 	{
-		driver.get("https://www.google.co.in/");
 		boolean flag = driver.findElement(By.name("q")).isDisplayed();
 		
 		// Assert class is overloaded

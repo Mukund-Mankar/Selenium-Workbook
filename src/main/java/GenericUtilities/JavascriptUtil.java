@@ -138,6 +138,7 @@ public class JavascriptUtil
 	}
 	
 	// After switch to a different url - wait for the page to be loaded completely
+	// Wait time - 20 seconds
 	public void waitForPageLoaded()
 	{
 		JavascriptExecutor jsExecutor = (JavascriptExecutor) driver;
