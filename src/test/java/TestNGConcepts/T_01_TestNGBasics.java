@@ -1,3 +1,4 @@
+package TestNGConcepts;
 // TestNG classes do not require main() method
 // Add TestNG maven dependency to pom.xml
 	// To get all TestNG jar files

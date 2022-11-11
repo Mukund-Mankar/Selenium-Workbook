@@ -1,6 +1,6 @@
 // For more than one @Test, the execution order will be alphabetical - sequence doesn't matter
 
-package ApplicationTest;
+package TestNGConcepts;
 
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;

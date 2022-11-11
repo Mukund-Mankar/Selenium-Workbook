@@ -1,6 +1,6 @@
 // Because there is no Test(no @Test annotation), this TestNG class can't be run
 
-package ApplicationTest;
+package TestNGConcepts;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;

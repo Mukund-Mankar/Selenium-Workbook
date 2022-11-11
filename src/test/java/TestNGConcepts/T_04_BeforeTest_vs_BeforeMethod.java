@@ -23,11 +23,11 @@
 		// When to use
 			// When the number of @Test cases is very large
 			// During regression testing
-			// Application development is in initial phase
+			// Application development is in initial phase - where @Test are more likely to fail
 
 			
 
-package ApplicationTest;
+package TestNGConcepts;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -39,7 +39,7 @@ import org.testng.annotations.Test;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class T_04_SampleTest
+public class T_04_BeforeTest_vs_BeforeMethod
 {
 	
 	WebDriver driver;
