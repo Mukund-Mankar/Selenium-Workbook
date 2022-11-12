@@ -55,3 +55,12 @@
 
 // In TestNG, we do not do method overloading with @Test
 
+// All @Test methods should be appended with Test
+	/*
+	 	@Test
+		public void loginTest()
+		{
+		}
+	 */
+
+
