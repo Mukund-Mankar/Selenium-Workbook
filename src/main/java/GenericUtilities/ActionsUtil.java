@@ -18,6 +18,7 @@ package GenericUtilities;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 public class ActionsUtil
@@ -63,6 +64,14 @@ public class ActionsUtil
 	{
 		actions
 		.moveToElement(elementUtil.getElement(byLocator))
+		.build()
+		.perform();
+	}
+	
+	public void doMoveToElement(WebElement webElement)
+	{
+		actions
+		.moveToElement(webElement)
 		.build()
 		.perform();
 	}

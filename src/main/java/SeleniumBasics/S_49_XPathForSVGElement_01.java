@@ -15,7 +15,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class S_49_XPathForSVGElement {
+public class S_49_XPathForSVGElement_01 {
 
 	public static void main(String[] args) throws InterruptedException
 	{
