@@ -14,6 +14,15 @@ public class JavascriptUtil
 		this.driver = driver;
 	}
 	
+	public WebElement executeJavaScript(String javaScriptString)
+	{
+		JavascriptExecutor jsExecutor = (JavascriptExecutor)driver;
+		
+		// Convert the javascript object to WebElement 
+		 WebElement webElement = (WebElement) jsExecutor.executeScript("return " + javaScriptString);
+		 return webElement;
+	}
+	
 	/** Get Page Title */
 	public String getTitle()
 	{
