@@ -17,9 +17,12 @@
 package GenericUtilities;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+
+import com.beust.jcommander.JCommander.Builder;
 
 public class ActionsUtil
 {
@@ -88,6 +91,13 @@ public class ActionsUtil
 	{
 		actions
 		.click(elementUtil.getElement(byLocator))
+		.build()
+		.perform();
+	}
+	
+	public void inputKeyboardKeysDown(WebElement webElement, CharSequence inputKeys)
+	{
+		actions.keyDown(webElement, inputKeys)
 		.build()
 		.perform();
 	}

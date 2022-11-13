@@ -5,17 +5,3 @@
 	// In a framework, the starting point is always the test class (eg. Login Page Test class)
 		// The test class will extends the Base test class
 			// Base test class contains @BeforeTest method
-
-
-
-
-package SeleniumBasics;
-
-public class S_56_CodeDebugging {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
-}
