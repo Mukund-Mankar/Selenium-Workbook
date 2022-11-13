@@ -1,6 +1,8 @@
 // Selenium
 	// Selenium is a library to help simulate all the user actions on the browser
 	// Selenium interacts only with the elements which are visible on the page
+	// Selenium is just a web automation tool
+	// Selenium is a library and/or a tool and/or set of API's and/or a framework
 
 // Advantages
 	// Selenium is only for Web UI automation
@@ -11,6 +13,7 @@
 	// Selenium can be integrated with any other 3rd party library (TestNG (Unit testing framework), JUnit, Apache POI)
 	// Lightweight, simple, easy to implement
 	// Selenium can be integrated with any build automation tools (Maven, Gradel)
+	// Selenium can be linked with Rest Assured or any other external library
 
 // Disadvantages
 	// No desktop application can be automated with selenium
@@ -18,6 +21,13 @@
 	// Selenium can't generate any test report (We have to use extent report, allure report, TestNG report)
 	// Performance or security testing could not be done with selenium - Only capable of functional testing
 	// It can't automate native mobile applications - Mobile browsers can be automated
+	// Can't do performance testing
+	// Can't do API(HTTP response code) testing
+	// Can't automate database
+		// Can't make connection with oracle or MySql server
+		// Language( Eg. Java) is responsible to make connection
+	// Don't trust AutoIT/ Robot classes
+		// AutoIT/ Robot only works on Windows, it does not work on docker/ linux machine
 	// We should never try to automate gmail, facebook, linkedin - they will block your account
 
 // Selenium Release History:
@@ -53,6 +63,50 @@
 		// Name it: src/test/resources
 		// This source folder will contain all the external files used in the project
 			// Example: xml files, json files, properties, excel sheets etc
+
+
+// ---------------------- Real-time scenarios with solution ---------------------------------------------------------
+
+// Scenario A: Verify if all the links on the page - (Linkedin, Facebook, twitter, youtube) are working properly
+
+// Solution - 01
+	// Open all the child window, verify the child windows one by one, come back to parent window
+		// Driver is present on the parent window
+		// Switch the driver to first child window -> Verify the child window -> Close the child window
+		// Switch the driver to second child window -> Verify the child window -> Close the child window
+		// Switch the driver to third child window -> Verify the child window -> Close the child window
+		// Switch the driver to fourth child window -> Verify the child window -> Close the child window
+		// Switch the driver again to Parent window
+
+// Solution - 02 [Better Approach]
+	// Open one child window, verify the child window, come back to parent window
+		// Driver is present on the parent window
+		// Switch the driver to first child window -> Verify the child window -> Close the child window
+		// Switch the driver again to Parent window
+		// Switch the driver to second child window -> Verify the child window -> Close the child window
+		// Switch the driver again to Parent window
+		// Switch the driver to third child window -> Verify the child window -> Close the child window
+		// Switch the driver again to Parent window
+		// Switch the driver to fourth child window -> Verify the child window -> Close the child window
+		// Switch the driver again to Parent window
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+// Scenario B: Random advertisements (or other) pop-ups are coming on the webpage/ OTP/
+				// Captcha/ 2 Factor Authentication/ File Download/ Link Spidering(Link Scrapping)
+	// Solution
+		// Can't automate these scenarios
+		// Discuss with the developer to block these scenarios in the test environment
+			// In the production or other environments, this scenario can be tested manually
+
+// -----------------------------------------------------------------------------------------------------------------------
+
+// Scenario C: Automation for OTP, Captcha, Two factor authentication
+	// Solution
+		// Can't automate these scenarios
+		// Captcha are always created to prevent the automation
+
+// -----------------------------------------------------------------------------------------------------------------------
 
 
 

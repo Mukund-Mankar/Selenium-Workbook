@@ -1,8 +1,14 @@
-// Headless: Browser will be opened but not visible/ hidden browser
-// We can take screenshot in headless mode
-// Testing is happening behind the scene
-// Faster than normal mode
+// Headless: Internally the browser will be opened but not visible/ hidden browser
+// Advantages
+	// Slightly faster
+	// We can take screenshot in headless mode
+// Disadvantages
+	// No visibility of driver actions on WebElements
+	// Sometimes it dosen't work for "Move to element", "pop-up"
 
+// Recommended ? - No
+	// Only applicable for Sanity test cases
+// ================================================================================
 // Incognito: Does not maintain any cash or cookies
 
 
